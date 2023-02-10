@@ -1,0 +1,88 @@
+*{
+    padding: 0;
+    max-width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(2, 85, 2);
+}
+
+.up-place{
+    display: flex;
+}
+
+.up__card{
+    width: min(14%,6rem);
+}
+
+.get-cards{
+    margin-right: auto;
+    border: 1px solid black;
+
+    transition: all 300ms;
+
+    cursor: pointer;
+}
+
+.get-cards:hover{
+    border: 1px solid yellow;
+}
+
+.get-cards>*{
+    height: 100%;
+}
+
+.card--stack{
+    border: 1px solid white;
+    margin-right: 0.1em;
+}
+
+.game-place{
+    display: flex;
+    justify-content: center;
+    
+    margin-top: 2.5em;
+}
+
+.column-cards{
+    display: flex;
+    flex-direction: column;
+
+    margin: 0.1em;
+}
+
+.card-game{
+    width: min(100%, 6rem);
+    border: 1px solid black;
+    margin-top: -2em;
+}
+
+@media screen and (min-width: 37.5em){
+    .game-place{
+        margin-top: 4.5em;
+    }
+
+    .card-game{
+        margin-top: -4em;
+    }
+}
+
+@media screen and (min-width: 62.5em){
+    .up-place{
+       padding: 1em; 
+    }
+
+    .card--stack{
+        margin-right: 0.5em;
+    }
+
+    .game-place{
+        margin-top: 7.5em;
+    }
+
+    .card-game{
+        margin-top: -7em;
+    }
+}
