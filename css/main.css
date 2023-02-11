@@ -1,3 +1,8 @@
+:root{
+    --card-height: calc(1.4em + 1vw);
+    --card-width: calc(0.7em + 1vw);
+}
+
 *{
     padding: 0;
     max-width: 100%;
@@ -14,10 +19,13 @@ body{
 }
 
 .up__card{
-    width: min(14%,6rem);
+    padding: var(--card-height) var(--card-width);
 }
 
 .get-cards{
+    background-image: url(/images/card-back.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     margin-right: auto;
     border: 1px solid black;
 
@@ -30,13 +38,9 @@ body{
     border: 1px solid yellow;
 }
 
-.get-cards>*{
-    height: 100%;
-}
-
 .card--stack{
     border: 1px solid white;
-    margin-right: 0.1em;
+    margin-right: 0.2em;
 }
 
 .game-place{
@@ -50,18 +54,46 @@ body{
     display: flex;
     flex-direction: column;
 
-    margin: 0.1em;
+    margin: 0.05em;
 }
 
 .card-game{
-    width: min(100%, 6rem);
+    background-image: url(/images/clubs/10-clubs.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    padding: var(--card-height) var(--card-width);
     border: 1px solid black;
     margin-top: -2em;
 }
 
+[data-can-drag]{
+    transition: all 300ms;
+
+    cursor: pointer;
+}
+[data-can-drag]:hover{
+    border: 1px solid yellow;
+}
+
+@media screen and (min-width:450px){
+    :root{
+        --card-height: calc(2em + 1vw);
+        --card-width: calc(1em + 1vw);
+    }
+}
+
 @media screen and (min-width: 37.5em){
+    :root{
+        --card-height: calc(2.6em + 1vw);
+        --card-width: calc(1.3em + 1vw);
+    }
+
     .game-place{
         margin-top: 4.5em;
+    }
+
+    .column-cards{
+        margin: 0.1em;
     }
 
     .card-game{
@@ -70,16 +102,25 @@ body{
 }
 
 @media screen and (min-width: 62.5em){
+    :root{
+        --card-height: calc(2.6em + 1vw);
+        --card-width: calc(2.3em + 1vw);
+    }
+
     .up-place{
        padding: 1em; 
     }
 
     .card--stack{
-        margin-right: 0.5em;
+        margin-right: 1em;
     }
 
     .game-place{
         margin-top: 7.5em;
+    }
+
+    .column-cards{
+        margin-right: 1em;
     }
 
     .card-game{
