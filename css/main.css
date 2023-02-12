@@ -44,7 +44,7 @@ body{
 }
 
 .get-cards:hover{
-    border: 1px solid yellow;
+    border: 1px solid cyan;
 }
 
 .card--stack{
@@ -63,6 +63,8 @@ body{
     display: flex;
     flex-direction: column;
 
+    position: relative;
+
     margin: 0.05em;
 }
 
@@ -72,6 +74,10 @@ body{
     padding: var(--card-height) var(--card-width);
     border: 1px solid black;
     margin-top: -2em;
+}
+
+.card-game--empty-hide{
+    display: none;
 }
 
 
@@ -120,11 +126,11 @@ body{
     }
 
     .column-cards{
-        margin-right: 1em;
+        margin-right: calc(0.1em + 0.1vw);
     }
 
     .card-game{
-        margin-top: -7em;
+        margin-top: -4.5em;
     }
 }
 
@@ -345,5 +351,11 @@ body{
     background-image: url(/images/spades/king-spades.png);
 }
 /*---Spades END*/
+
+[data-card-win]{
+    background-image: url(/images/clubs/king-clubs.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
 
 /*Data attributes for cards END*/
