@@ -163,31 +163,31 @@
 
     </section>
 
-    <section class="slots-section save-game" data-slots-closed="true">
+    <section class="slots-section save-game" data-slots-closed="true" data-slots="save">
 
         <div class="slot" data-save-slot="1">Save Slot 1 <p class="slot-p">No game</p></div>
         <div class="slot" data-save-slot="2">Save Slot 2 <p class="slot-p">No game</p></div>
         <div class="slot" data-save-slot="3">Save Slot 3 <p class="slot-p">No game</p></div>
         <div class="slot" data-save-slot="4">Save Slot 4 <p class="slot-p">No game</p></div>
 
-        <button class="close-button"><img src="/images/icon-close.png" alt="close icon" class="close-img"></button>
+        <button class="close-button" data-close-slots="save"><img src="/images/icon-close.png" alt="close icon" class="close-img"></button>
     </section>
 
-    <section class="slots-section load-game" data-slots-closed="true">
+    <section class="slots-section load-game" data-slots-closed="true" data-slots="load">
 
         <div class="slot" data-load-slot="1">Save Slot 1 <p class="slot-p">No game</p></div>
         <div class="slot" data-load-slot="2">Save Slot 2 <p class="slot-p">No game</p></div>
         <div class="slot" data-load-slot="3">Save Slot 3 <p class="slot-p">No game</p></div>
         <div class="slot" data-load-slot="4">Save Slot 4 <p class="slot-p">No game</p></div>
 
-        <button class="close-button"><img src="/images/icon-close.png" alt="close icon" class="close-img"></button>
+        <button class="close-button" data-close-slots="load"><img src="/images/icon-close.png" alt="close icon" class="close-img"></button>
     </section>
 
     <footer>
         <section class="footer-btns">
             <button>New game</button>
-            <button>Save game</button>
-            <button>Load game</button>
+            <button data-save-load-game="save">Save game</button>
+            <button data-save-load-game="load">Load game</button>
         </section>
     </footer>
 </body>

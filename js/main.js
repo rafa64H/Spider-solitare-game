@@ -56,6 +56,31 @@ getCardsButton.addEventListener('click', e =>{
     
 })
 
+const openSlotsBtns = document.querySelectorAll('[data-save-load-game]')
+
+openSlotsBtns.forEach(openSlot =>{
+    openSlot.addEventListener('click', e =>{
+        const saveOrLoad = e.target.getAttribute('data-save-load-game')
+        const saveSlotsBox = document.querySelector('[data-slots="save"]')
+        const loadSlotsBox = document.querySelector('[data-slots="load"]')
+
+        if(saveOrLoad === 'save'){
+            if(loadSlotsBox.dataset.slotsClosed === 'true') saveSlotsBox.dataset.slotsClosed = 'false'
+        } else{
+            if(saveSlotsBox.dataset.slotsClosed === 'true') loadSlotsBox.dataset.slotsClosed = 'false'
+        }
+    })
+
+})
+
+const closeSlotsBtns = document.querySelectorAll('[data-close-slots]')
+
+closeSlotsBtns.forEach(closeSlot =>{
+    closeSlot.addEventListener('click', e =>{
+        const closestSlotsBox = closeSlot.closest('[data-slots]')
+        closestSlotsBox.dataset.slotsClosed = 'true'
+    })
+})
 
 function drop(draggedElement, target){
     const attriDragged = draggedElement.getAttribute('data-card-value')
