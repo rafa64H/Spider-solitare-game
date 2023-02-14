@@ -234,3 +234,13 @@ function confirmCards(column){
         emptyPlace.classList.remove('card-game--empty-hide')
     }
 }
+/*
+const hola = document.querySelector('.column-cards')
+
+let carta = new Card('','',hola)
+
+carta.buildCardBack()
+
+let cartaNueva = new Card('2', 'spades', hola)
+
+cartaNueva.build()*/

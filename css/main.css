@@ -10,6 +10,23 @@
     box-sizing: border-box;
 }
 
+button{
+    margin: 0 auto;
+    background-color: transparent;
+    padding: 0.5em;
+    border: none;
+    
+    color: white;
+    font-size: clamp(1rem, 1.7vw, 3.5rem);
+
+    transition: all 300ms;
+
+    cursor: pointer;
+}
+button:hover{
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
 [draggable='true']{
     transition: all 300ms;
 
@@ -81,6 +98,67 @@ body{
 }
 
 .card-game--empty-hide{
+    display: none;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    padding: 1em;
+}
+
+.footer-btns{
+    display: flex;
+    justify-content: center;
+
+    margin: 0 auto;
+}
+
+.slots-section{
+    display: flex;
+    flex-wrap: wrap;
+
+    position: relative;
+    
+    width: min(80%, 35rem);
+    padding: 1em;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.slot{
+    padding: 0.5em;
+    width: 30%;
+
+    color: white;
+    text-align: center;
+    font-family: sans-serif;
+
+    cursor: pointer;
+}
+.slot:hover{
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.slot-p{
+}
+
+.close-button{
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    padding: 0.1em;
+}
+
+.close-img{
+    width: 30%;
+}
+
+[data-slots-closed='true']{
     display: none;
 }
 
