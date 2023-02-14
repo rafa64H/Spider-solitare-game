@@ -42,6 +42,10 @@ body{
 
     cursor: pointer;
 }
+[data-get-cards='false']{
+    visibility: hidden !important;
+}
+
 
 .get-cards:hover{
     border: 1px solid cyan;
@@ -137,56 +141,56 @@ body{
 /*Data attributes for cards*/
 
 /*---Clubs*/
-[data-card-value='1 Clubs']{
-    background-image: url(/images/Clubs/ace-Clubs.png);
+[data-card-value='1 clubs']{
+    background-image: url(/images/clubs/ace-clubs.png);
 }
 
-[data-card-value='2 Clubs']{
-    background-image: url(/images/Clubs/2-Clubs.png);
+[data-card-value='2 clubs']{
+    background-image: url(/images/clubs/2-clubs.png);
 }
 
-[data-card-value='3 Clubs']{
-    background-image: url(/images/Clubs/3-Clubs.png);
+[data-card-value='3 clubs']{
+    background-image: url(/images/clubs/3-clubs.png);
 }
 
-[data-card-value='4 Clubs']{
-    background-image: url(/images/Clubs/4-Clubs.png);
+[data-card-value='4 clubs']{
+    background-image: url(/images/clubs/4-clubs.png);
 }
 
-[data-card-value='5 Clubs']{
-    background-image: url(/images/Clubs/5-Clubs.png);
+[data-card-value='5 clubs']{
+    background-image: url(/images/clubs/5-clubs.png);
 }
 
-[data-card-value='6 Clubs']{
-    background-image: url(/images/Clubs/6-Clubs.png);
+[data-card-value='6 clubs']{
+    background-image: url(/images/clubs/6-clubs.png);
 }
 
-[data-card-value='7 Clubs']{
-    background-image: url(/images/Clubs/7-Clubs.png);
+[data-card-value='7 clubs']{
+    background-image: url(/images/clubs/7-clubs.png);
 }
 
-[data-card-value='8 Clubs']{
-    background-image: url(/images/Clubs/8-Clubs.png);
+[data-card-value='8 clubs']{
+    background-image: url(/images/clubs/8-clubs.png);
 }
 
-[data-card-value='9 Clubs']{
-    background-image: url(/images/Clubs/9-Clubs.png);
+[data-card-value='9 clubs']{
+    background-image: url(/images/clubs/9-clubs.png);
 }
 
-[data-card-value='10 Clubs']{
-    background-image: url(/images/Clubs/10-Clubs.png);
+[data-card-value='10 clubs']{
+    background-image: url(/images/clubs/10-clubs.png);
 }
 
-[data-card-value='11 Clubs']{
-    background-image: url(/images/Clubs/jack-Clubs.png);
+[data-card-value='11 clubs']{
+    background-image: url(/images/clubs/jack-clubs.png);
 }
 
-[data-card-value='12 Clubs']{
-    background-image: url(/images/Clubs/queen-Clubs.png);
+[data-card-value='12 clubs']{
+    background-image: url(/images/clubs/queen-clubs.png);
 }
 
-[data-card-value='13 Clubs']{
-    background-image: url(/images/Clubs/king-Clubs.png);
+[data-card-value='13 clubs']{
+    background-image: url(/images/clubs/king-clubs.png);
 }
 /*---Clubs END*/
 
@@ -356,6 +360,10 @@ body{
     background-image: url(/images/clubs/king-clubs.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
+}
+
+[data-card-back]{
+    background-image: url(/images/card-back.png);
 }
 
 /*Data attributes for cards END*/

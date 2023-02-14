@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/main.css">
     <script src="/js/main.js" type="module" defer></script>
+    <script src="/js/class.js" type="module" defer></script>
     <title>Spider solitaire game</title>
 </head>
 <body>
     <section class="up-place">
-        <div class="up__card get-cards">
+        <div class="up__card get-cards" data-get-cards="true">
         </div>
 
         <div class="up__card card--stack">
@@ -52,6 +53,7 @@
             </div>
 
             <div class="card-game" draggable="true" data-card-value="1 hearts">
+
             </div>
 
         </div>
@@ -70,6 +72,7 @@
 
             <div class="card-game card-game--empty-hide" data-card-empty>
             </div>
+
 
             <div class="card-game" draggable="true" data-card-value="3 hearts">
             </div>

@@ -1,7 +1,12 @@
+import Card from "./class.js"
+
 let dragged = null
 let countWin = 0
 
 const winCards = [...document.querySelectorAll('.card--stack')]
+
+const getCardsButton = document.querySelector('.get-cards')
+let getCardsCount = 5
 
 document.addEventListener('dragstart', e=>{
     if(e.target.matches('[data-card-value]')){
@@ -28,11 +33,33 @@ document.addEventListener('drop', e=>{
     }
 })
 
+getCardsButton.addEventListener('click', e =>{
+    if(getCardsCount === 0){
+
+    }else{
+        const gamePlace = document.querySelector('.game-place')
+        const gamePlaceColumns = [...gamePlace.children]
+    
+        gamePlaceColumns.forEach(column => {
+            let arrayAttributes = getValuesForDataAttr()
+            let newCard = new Card(arrayAttributes[0], arrayAttributes[1], column)
+            if(column.querySelector('[data-card-value]') === null){
+                column.querySelector('[data-card-empty]').classList.add('card-game--empty-hide')
+            }
+            newCard.build()
+        });
+        getCardsCount -= 1
+    }
+    if(getCardsCount === 0){
+        getCardsButton.dataset.getCards = 'false'
+    }
+    
+})
+
 
 function drop(draggedElement, target){
     const attriDragged = draggedElement.getAttribute('data-card-value')
     const attriTarget = target.getAttribute('data-card-value')
-    const isEmpty = attriTarget === null
 
     const columnOfTarget = target.closest('.column-cards')
     const columnOfDragged = draggedElement.closest('.column-cards')
@@ -40,41 +67,39 @@ function drop(draggedElement, target){
     const arrayColumnDragged = [...columnOfDragged.children]
     const indexOfDragged = arrayColumnDragged.indexOf(draggedElement)
 
-    const NumAndTypeOfCardDragged = attriDragged.split(' ')
+    const arrayColumnTarget = [...columnOfTarget.children]
+    const indexOfTarget = arrayColumnTarget.indexOf(target)
+
+    const attriDraggedSplit = attriDragged.split(' ')
     
-    const valueNumDragged = parseInt(NumAndTypeOfCardDragged[0])
+    const valueNumDragged = parseInt(attriDraggedSplit[0])
 
     //if target it's a [data-card-empty]
     if (attriTarget === null){
-        for(let i = indexOfDragged; i < arrayColumnDragged.length; i++){
-            columnOfTarget.appendChild(arrayColumnDragged[i])
-        }
-
-        target.classList.add('card-game--empty-hide')
-        const confirmCards = columnOfDragged.querySelector('[data-card-value]')
-
-        if(confirmCards === null){
-            const emptyPlace = columnOfDragged.querySelector('[data-card-empty]')
-            emptyPlace.classList.remove('card-game--empty-hide')
-        }  
-        
-    } else{
-        const NumAndTypeOfCardTarget = attriTarget.split(' ')
-        
-        const valueNumTarget = parseInt(NumAndTypeOfCardTarget[0])
-    
-        if(valueNumDragged + 1 === valueNumTarget){
-
+        if(indexOfTarget === arrayColumnTarget.length-1){
             for(let i = indexOfDragged; i < arrayColumnDragged.length; i++){
                 columnOfTarget.appendChild(arrayColumnDragged[i])
             }
+    
+            target.classList.add('card-game--empty-hide')
+            confirmCards(columnOfDragged)            
+        }
 
-            const confirmCards = columnOfDragged.querySelector('[data-card-value]')
-
-            if(confirmCards === null){
-                const emptyPlace = columnOfDragged.querySelector('[data-card-empty]')
-                emptyPlace.classList.remove('card-game--empty-hide')
-            }          
+        
+    } else{
+        if(indexOfTarget === arrayColumnTarget.length-1){
+            const attriTargetSplit = attriTarget.split(' ')
+        
+            const valueNumTarget = parseInt(attriTargetSplit[0])
+        
+            if(valueNumDragged + 1 === valueNumTarget){
+    
+                for(let i = indexOfDragged; i < arrayColumnDragged.length; i++){
+                    columnOfTarget.appendChild(arrayColumnDragged[i])
+                }
+    
+                confirmCards(columnOfDragged)
+            }
         }
    }
 
@@ -86,6 +111,15 @@ function drop(draggedElement, target){
    if(valueLastTarget === 1){
         tryRemovePileOfCards(arrayOfTarget, columnOfTarget)
    }
+
+
+   const updatedArrColumnDragged = [...columnOfDragged.children]
+   const lastCardColumnDragged = updatedArrColumnDragged[updatedArrColumnDragged.length-1]
+   if(lastCardColumnDragged.getAttribute('data-card-back') === ''){
+        cardBackToCard(lastCardColumnDragged)
+   }
+   verifyIfDraggable(lastCardColumnDragged, columnOfDragged)
+
 }
 
 function tryRemovePileOfCards(arrayOfTarget, columnOfTarget){
@@ -117,11 +151,7 @@ function tryRemovePileOfCards(arrayOfTarget, columnOfTarget){
                     toRemove.remove()
                 });
 
-                const confirmCards = columnOfTarget.querySelector('[data-card-value]')
-                if(confirmCards === null){
-                    const emptyPlace = columnOfTarget.querySelector('[data-card-empty]')
-                    emptyPlace.classList.remove('card-game--empty-hide')
-                }
+                confirmCards(columnOfTarget)
 
                 winCards[0].dataset.cardWin = true
 
@@ -129,4 +159,78 @@ function tryRemovePileOfCards(arrayOfTarget, columnOfTarget){
             }
         }
     } 
+}
+
+
+export function verifyIfDraggable(lastCard,column){
+    const arrayColumn = [...column.children]
+    const beforeLastCard = arrayColumn[arrayColumn.indexOf(lastCard)-1]
+    
+    if(lastCard.getAttribute('data-card-empty') === ''){
+    } 
+    
+    else if(beforeLastCard.getAttribute('data-card-value') === null){
+        lastCard.setAttribute('draggable', 'true')   
+    } 
+
+    else{
+        const attributeLastCard = lastCard.getAttribute('data-card-value').split(' ')
+        const attributeBeforeLastCard = beforeLastCard.getAttribute('data-card-value').split(' ')
+        
+        const beforeLastCardValue = parseInt(attributeBeforeLastCard[0])
+        const lastCardValue = parseInt(attributeLastCard[0])
+    
+        if(beforeLastCardValue <= lastCardValue){
+    
+            for(let i = 0; i<arrayColumn.indexOf(lastCard); i++){
+                if(arrayColumn[i].getAttribute('data-card-empty') === ''){}
+                arrayColumn[i].setAttribute('draggable', 'false')
+            }
+        }else{
+            arrayColumn.forEach(card => {
+                card.setAttribute('draggable', 'true')
+            });       
+        }
+    }
+
+}
+
+function cardBackToCard(lastCard){
+    const arrayAttributes = getValuesForDataAttr()
+    const toDataAttribute = arrayAttributes.join(' ')
+
+    delete lastCard.dataset.cardBack
+    lastCard.dataset.cardValue = toDataAttribute
+    lastCard.setAttribute('draggable', 'true')
+}
+
+export function randomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+}
+
+function getValuesForDataAttr(){
+    const valueCard = String(randomNumber(1,13))
+    let typeCard = randomNumber(1,4)
+
+    switch(typeCard){
+        case 1: typeCard = 'clubs'
+        break;
+        case 2: typeCard = 'diamonds'
+        break; 
+        case 3: typeCard = 'hearts' 
+        break;
+        case 4: typeCard = 'spades'
+    }
+
+    const arrayValues = [valueCard, typeCard]
+    return arrayValues
+}
+
+function confirmCards(column){
+    const verify = column.querySelector('[data-card-value], [data-card-back]')
+    const emptyPlace = column.querySelector('[data-card-empty]')
+    
+    if(verify === null){
+        emptyPlace.classList.remove('card-game--empty-hide')
+    }
 }
