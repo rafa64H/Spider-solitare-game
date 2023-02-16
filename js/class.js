@@ -1,4 +1,4 @@
-import { verifyIfDraggable, randomNumber } from "./main.js"
+import * as functions from './functions.js'
 
 export default class Card {
     constructor(numValue, typeCard, column){
@@ -15,12 +15,13 @@ export default class Card {
         card.setAttribute('draggable', 'true')
         this.column.appendChild(card)
 
-        verifyIfDraggable(card, this.column)
+        functions.verifyIfDraggable(card, this.column)
     }
 
     buildCardBack(){
         const card = document.createElement('div')
         card.classList.add('card-game')
+        card.dataset.cardValue = `${this.value} ${this.typeCard}`
         card.dataset.cardBack = ''
         card.setAttribute('draggable', 'false')
         this.column.appendChild(card)

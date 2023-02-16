@@ -10,6 +10,14 @@
     <title>Spider solitaire game</title>
 </head>
 <body>
+    <header>
+        <section class="header-btns">
+            <button>New game</button>
+            <button data-save-load-game="save">Save game</button>
+            <button data-save-load-game="load">Load game</button>
+        </section>
+    </header>
+
     <section class="up-place">
         <div class="up__card get-cards" data-get-cards="true">
         </div>
@@ -52,8 +60,11 @@
             <div class="card-game card-game--empty-hide" data-card-empty>
             </div>
 
-            <div class="card-game" draggable="true" data-card-value="1 hearts">
+        </div>
 
+        <div class="column-cards">
+
+            <div class="card-game card-game--empty-hide" data-card-empty>
             </div>
 
         </div>
@@ -63,7 +74,11 @@
             <div class="card-game card-game--empty-hide" data-card-empty>
             </div>
 
-            <div class="card-game" draggable="true" data-card-value="2 hearts">
+        </div>
+
+        <div class="column-cards">
+
+            <div class="card-game card-game--empty-hide" data-card-empty>
             </div>
 
         </div>
@@ -73,8 +88,11 @@
             <div class="card-game card-game--empty-hide" data-card-empty>
             </div>
 
+        </div>
 
-            <div class="card-game" draggable="true" data-card-value="3 hearts">
+        <div class="column-cards">
+
+            <div class="card-game card-game--empty-hide" data-card-empty>
             </div>
 
         </div>
@@ -84,7 +102,11 @@
             <div class="card-game card-game--empty-hide" data-card-empty>
             </div>
 
-            <div class="card-game" draggable="true" data-card-value="4 hearts">
+        </div>
+
+        <div class="column-cards">
+
+            <div class="card-game card-game--empty-hide" data-card-empty>
             </div>
 
         </div>
@@ -94,19 +116,6 @@
             <div class="card-game card-game--empty-hide" data-card-empty>
             </div>
 
-            <div class="card-game" draggable="true" data-card-value="5 hearts">
-            </div>
-
-        </div>
-
-        <div class="column-cards">
-
-            <div class="card-game card-game--empty-hide" data-card-empty>
-            </div>
-            
-            <div class="card-game" draggable="true" data-card-value="6 hearts">
-            </div>
-
         </div>
 
         <div class="column-cards">
@@ -114,53 +123,7 @@
             <div class="card-game card-game--empty-hide" data-card-empty>
             </div>
 
-            <div class="card-game" draggable="true" data-card-value="7 hearts">
-            </div>
-
         </div>
-
-        <div class="column-cards">
-
-            <div class="card-game card-game--empty-hide" data-card-empty>
-            </div>
-
-            <div class="card-game" draggable="true" data-card-value="8 hearts">
-            </div>
-
-        </div>
-
-        <div class="column-cards">
-
-            <div class="card-game card-game--empty-hide" data-card-empty>
-            </div>
-
-            <div class="card-game" draggable="true" data-card-value="9 hearts">
-            </div>
-
-        </div>
-
-        <div class="column-cards">
-
-            <div class="card-game card-game--empty-hide" data-card-empty>
-            </div>
-
-            <div class="card-game" draggable="true" draggable="true" data-card-value="13 hearts">
-            </div>
-
-            <div class="card-game" draggable="true" draggable="true" data-card-value="12 hearts">
-            </div>
-
-            <div class="card-game" draggable="true" draggable="true" data-card-value="11 hearts">
-            </div>
-
-            <div class="card-game" draggable="true" draggable="true" data-card-value="10 hearts">
-            </div>
-
-        </div>
-    </section>
-    
-    <section class="new-game">
-
     </section>
 
     <section class="slots-section save-game" data-slots-closed="true" data-slots="save">
@@ -175,20 +138,14 @@
 
     <section class="slots-section load-game" data-slots-closed="true" data-slots="load">
 
-        <div class="slot" data-load-slot="1">Save Slot 1 <p class="slot-p">No game</p></div>
-        <div class="slot" data-load-slot="2">Save Slot 2 <p class="slot-p">No game</p></div>
-        <div class="slot" data-load-slot="3">Save Slot 3 <p class="slot-p">No game</p></div>
-        <div class="slot" data-load-slot="4">Save Slot 4 <p class="slot-p">No game</p></div>
+        <div class="slot" data-load-slot="1">Load Slot 1 <p class="slot-p">No game</p></div>
+        <div class="slot" data-load-slot="2">Load Slot 2 <p class="slot-p">No game</p></div>
+        <div class="slot" data-load-slot="3">Load Slot 3 <p class="slot-p">No game</p></div>
+        <div class="slot" data-load-slot="4">Load Slot 4 <p class="slot-p">No game</p></div>
 
         <button class="close-button" data-close-slots="load"><img src="/images/icon-close.png" alt="close icon" class="close-img"></button>
     </section>
 
-    <footer>
-        <section class="footer-btns">
-            <button>New game</button>
-            <button data-save-load-game="save">Save game</button>
-            <button data-save-load-game="load">Load game</button>
-        </section>
-    </footer>
+
 </body>
 </html>

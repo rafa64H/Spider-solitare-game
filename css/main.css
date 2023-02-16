@@ -105,7 +105,10 @@ body{
     display: flex;
     flex-wrap: wrap;
 
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
     
     width: min(80%, 35rem);
     padding: 1em;
@@ -148,14 +151,14 @@ body{
 }
 
 
-footer{
+header{
     background-color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 1.5em;
     width: 100%;
-    margin-top: min(75%, 23rem);
-    padding: 1em;
+    padding: 0.5em;
 }
 
-.footer-btns{
+.header-btns{
     display: flex;
     justify-content: center;
 
