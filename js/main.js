@@ -1,4 +1,3 @@
-
 import * as functions from "./functions.js"
 
 let dragged = null
@@ -36,6 +35,12 @@ getCardsButton.addEventListener('click', e =>{
     
 })
 
+const newGameBtn = document.querySelector('[data-new-game]')
+
+newGameBtn.addEventListener('click', e =>{
+    functions.newGame()
+})
+
 const openSlotsBtns = document.querySelectorAll('[data-save-load-game]')
 
 openSlotsBtns.forEach(openSlot =>{
@@ -59,6 +64,24 @@ closeSlotsBtns.forEach(closeSlot =>{
     closeSlot.addEventListener('click', e =>{
         const closestSlotsBox = closeSlot.closest('[data-slots]')
         closestSlotsBox.dataset.slotsClosed = 'true'
+    })
+})
+
+const saveSlots = document.querySelectorAll('[data-save-slot]')
+
+saveSlots.forEach((slot) => {
+    slot.addEventListener('click', e => {
+        let slotNumber = slot.getAttribute('data-save-slot')
+        functions.saveGame(slotNumber)
+    })
+})
+
+const loadSlots = document.querySelectorAll('[data-load-slot]')
+
+loadSlots.forEach((slot) => {
+    slot.addEventListener('click', e => {
+        let slotNumber = slot.getAttribute('data-load-slot')
+        functions.loadGame(slotNumber)
     })
 })
 

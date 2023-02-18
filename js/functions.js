@@ -1,58 +1,82 @@
 import Card from "./class.js"
 
-const cards1 = [
-    [['1', 'clubs'], ['2', 'clubs'], ['3', 'clubs'],
-    ['4', 'clubs'], ['5', 'clubs'], ['6', 'clubs'],
-    ['7', 'clubs'], ['8', 'clubs'], ['9', 'clubs'],
-    ['10', 'clubs'], ['11', 'clubs'], ['12', 'clubs'],
-    ['13', 'clubs']],
+let countWin = 0
+let getCardsCount = 5
 
-    [['1', 'diamonds'], ['2', 'diamonds'], ['3', 'diamonds'],
-    ['4', 'diamonds'], ['5', 'diamonds'], ['6', 'diamonds'],
-    ['7', 'diamonds'], ['8', 'diamonds'], ['9', 'diamonds'],
-    ['10', 'diamonds'], ['11', 'diamonds'], ['12', 'diamonds'],
-    ['13', 'diamonds']],
+const winCards = [...document.querySelectorAll('.card--stack')]
+const getCardsButton = document.querySelector('.get-cards')
 
-    [['1', 'hearts'], ['2', 'hearts'], ['3', 'hearts'],
-    ['4', 'hearts'], ['5', 'hearts'], ['6', 'hearts'],
-    ['7', 'hearts'], ['8', 'hearts'], ['9', 'hearts'],
-    ['10', 'hearts'], ['11', 'hearts'], ['12', 'hearts'],
-    ['13', 'hearts']],
 
-    [['1', 'spades'], ['2', 'spades'], ['3', 'spades'],
-    ['4', 'spades'], ['5', 'spades'], ['6', 'spades'],
-    ['7', 'spades'], ['8', 'spades'], ['9', 'spades'],
-    ['10', 'spades'], ['11', 'spades'], ['12', 'spades'],
-    ['13', 'spades']]
-]
+let cards1 = []
     
-const cards2 = [
-    [['1', 'clubs'], ['2', 'clubs'], ['3', 'clubs'],
-    ['4', 'clubs'], ['5', 'clubs'], ['6', 'clubs'],
-    ['7', 'clubs'], ['8', 'clubs'], ['9', 'clubs'],
-    ['10', 'clubs'], ['11', 'clubs'], ['12', 'clubs'],
-    ['13', 'clubs']],
+let cards2 = []
 
-    [['1', 'diamonds'], ['2', 'diamonds'], ['3', 'diamonds'],
-    ['4', 'diamonds'], ['5', 'diamonds'], ['6', 'diamonds'],
-    ['7', 'diamonds'], ['8', 'diamonds'], ['9', 'diamonds'],
-    ['10', 'diamonds'], ['11', 'diamonds'], ['12', 'diamonds'],
-    ['13', 'diamonds']],
+export function newGame(){
+    const allCards = document.querySelectorAll('.card-game:not([data-card-empty])')
+    allCards.forEach(card =>{
+        card.remove()
+    })
 
-    [['1', 'hearts'], ['2', 'hearts'], ['3', 'hearts'],
-    ['4', 'hearts'], ['5', 'hearts'], ['6', 'hearts'],
-    ['7', 'hearts'], ['8', 'hearts'], ['9', 'hearts'],
-    ['10', 'hearts'], ['11', 'hearts'], ['12', 'hearts'],
-    ['13', 'hearts']],
+    countWin = 0
+    getCardsCount = 5
+    getCardsButton.dataset.getCards = true
 
-    [['1', 'spades'], ['2', 'spades'], ['3', 'spades'],
-    ['4', 'spades'], ['5', 'spades'], ['6', 'spades'],
-    ['7', 'spades'], ['8', 'spades'], ['9', 'spades'],
-    ['10', 'spades'], ['11', 'spades'], ['12', 'spades'],
-    ['13', 'spades']]
-]
+    winCards.forEach(winCard => {
+        delete winCard.dataset.cardWin
+    });
 
-function newGame(){
+    cards1 = [
+        [['1', 'clubs'], ['2', 'clubs'], ['3', 'clubs'],
+        ['4', 'clubs'], ['5', 'clubs'], ['6', 'clubs'],
+        ['7', 'clubs'], ['8', 'clubs'], ['9', 'clubs'],
+        ['10', 'clubs'], ['11', 'clubs'], ['12', 'clubs'],
+        ['13', 'clubs']],
+    
+        [['1', 'diamonds'], ['2', 'diamonds'], ['3', 'diamonds'],
+        ['4', 'diamonds'], ['5', 'diamonds'], ['6', 'diamonds'],
+        ['7', 'diamonds'], ['8', 'diamonds'], ['9', 'diamonds'],
+        ['10', 'diamonds'], ['11', 'diamonds'], ['12', 'diamonds'],
+        ['13', 'diamonds']],
+    
+        [['1', 'hearts'], ['2', 'hearts'], ['3', 'hearts'],
+        ['4', 'hearts'], ['5', 'hearts'], ['6', 'hearts'],
+        ['7', 'hearts'], ['8', 'hearts'], ['9', 'hearts'],
+        ['10', 'hearts'], ['11', 'hearts'], ['12', 'hearts'],
+        ['13', 'hearts']],
+    
+        [['1', 'spades'], ['2', 'spades'], ['3', 'spades'],
+        ['4', 'spades'], ['5', 'spades'], ['6', 'spades'],
+        ['7', 'spades'], ['8', 'spades'], ['9', 'spades'],
+        ['10', 'spades'], ['11', 'spades'], ['12', 'spades'],
+        ['13', 'spades']]
+    ]
+
+    cards2 = [
+        [['1', 'clubs'], ['2', 'clubs'], ['3', 'clubs'],
+        ['4', 'clubs'], ['5', 'clubs'], ['6', 'clubs'],
+        ['7', 'clubs'], ['8', 'clubs'], ['9', 'clubs'],
+        ['10', 'clubs'], ['11', 'clubs'], ['12', 'clubs'],
+        ['13', 'clubs']],
+    
+        [['1', 'diamonds'], ['2', 'diamonds'], ['3', 'diamonds'],
+        ['4', 'diamonds'], ['5', 'diamonds'], ['6', 'diamonds'],
+        ['7', 'diamonds'], ['8', 'diamonds'], ['9', 'diamonds'],
+        ['10', 'diamonds'], ['11', 'diamonds'], ['12', 'diamonds'],
+        ['13', 'diamonds']],
+    
+        [['1', 'hearts'], ['2', 'hearts'], ['3', 'hearts'],
+        ['4', 'hearts'], ['5', 'hearts'], ['6', 'hearts'],
+        ['7', 'hearts'], ['8', 'hearts'], ['9', 'hearts'],
+        ['10', 'hearts'], ['11', 'hearts'], ['12', 'hearts'],
+        ['13', 'hearts']],
+    
+        [['1', 'spades'], ['2', 'spades'], ['3', 'spades'],
+        ['4', 'spades'], ['5', 'spades'], ['6', 'spades'],
+        ['7', 'spades'], ['8', 'spades'], ['9', 'spades'],
+        ['10', 'spades'], ['11', 'spades'], ['12', 'spades'],
+        ['13', 'spades']]
+    ]
+
     const gamePlace = document.querySelector('.game-place')
     const gamePlaceArr = [...gamePlace.children]
 
@@ -95,19 +119,7 @@ function newGame(){
             }
         }
     });
-
-    console.log(cards1)
-    console.log(cards2)
 }
-
-newGame()
-
-const getCardsButton = document.querySelector('.get-cards')
-
-let countWin = 0
-let getCardsCount = 5
-
-const winCards = [...document.querySelectorAll('.card--stack')]
 
 export function drop(draggedElement, target){
     const attriDragged = draggedElement.getAttribute('data-card-value')
@@ -225,10 +237,6 @@ export function verifyIfDraggable(lastCard,column){
     if(lastCard.getAttribute('data-card-empty') === ''){
     } 
     
-    else if(beforeLastCard.getAttribute('data-card-value') === null){
-        lastCard.setAttribute('draggable', 'true')   
-    }
-
     else{
         for(let i = arrayColumn.length-2; i>=1; i--){
             let currentCard = arrayColumn[i]
@@ -273,7 +281,7 @@ export function cardBackToCard(lastCard){
 export function confirmCards(column){
     const verify = column.querySelector('[data-card-value], [data-card-back]')
     const emptyPlace = column.querySelector('[data-card-empty]')
-    
+
     if(verify === null){
         emptyPlace.classList.remove('card-game--empty-hide')
     }
@@ -315,4 +323,76 @@ export function getValuesForDataAttr(cardsArr){
 
     if(cardsArr[index1].length === 0) cardsArr.splice(index1, 1)
     return arrayValues
+}
+
+export function saveGame(slot){
+    const columns = [...document.querySelector('.game-place').children]
+    const arrayCardsSaved = [[], [], [], [], [], [], [], [], [], []]
+    columns.forEach((column, index) => {
+        const cards = [...column.querySelectorAll('.card-game:not([data-card-empty])')]
+        
+        cards.forEach((card,index2) =>{
+            let cardValue = card.getAttribute('data-card-value')
+            let isCardBack = card.getAttribute('data-card-back')
+            let arrayCardValue = cardValue.split(' ')
+            arrayCardValue.push(isCardBack)
+            arrayCardsSaved[index].push(arrayCardValue)    
+        })
+    });
+
+    localStorage.setItem(`slot${slot}Cards`, JSON.stringify(arrayCardsSaved))
+    localStorage.setItem(`slot${slot}CountWin`, JSON.stringify(countWin))
+    localStorage.setItem(`slot${slot}GetCards`, JSON.stringify(getCardsCount))
+    localStorage.setItem(`slot${slot}Cards2`, JSON.stringify(cards2))
+}
+
+export function loadGame(slot){
+    const cardsOnGame = JSON.parse(localStorage.getItem(`slot${slot}Cards`))
+    countWin = parseInt(localStorage.getItem(`slot${slot}CountWin`))
+    getCardsCount = parseInt(localStorage.getItem(`slot${slot}GetCards`))
+    cards2 = JSON.parse(localStorage.getItem(`slot${slot}Cards2`))
+
+    getCardsButton.dataset.getCards = 'false'
+    if(getCardsCount > 0)getCardsButton.dataset.getCards = true
+    
+    winCards.forEach(winCard => {
+        delete winCard.dataset.cardWin
+    })
+
+    if(countWin > 0) winCards.forEach((winCard, index) =>{
+        if(index >= countWin){}
+        
+        else{winCard.dataset.cardWin = true}
+    })
+
+    const columns = [...document.querySelector('.game-place').children]
+
+    columns.forEach(column => {
+        const columnCardsBefore = [...column.querySelectorAll('.card-game:not([data-card-empty])')]
+        
+        columnCardsBefore.forEach(card => {
+            card.remove()
+        });
+    })
+
+    columns.forEach((column, index) => {
+
+        for(let i = 0; i < cardsOnGame[index].length; i++){
+            let valueCardArr = cardsOnGame[index][i]
+            let loadCard = new Card(valueCardArr[0], valueCardArr[1], column)
+
+            if(valueCardArr[2] !== null){
+                loadCard.buildCardBack()
+            } else{
+                loadCard.build()
+            }
+        }
+
+    });
+
+    const cardEmptyAll = document.querySelectorAll('[data-card-empty]')
+
+    columns.forEach(column => {
+        confirmCards(column)
+    })
 }
