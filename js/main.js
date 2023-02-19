@@ -1,4 +1,7 @@
 import * as functions from "./functions.js"
+functions.newGame()
+functions.verifyIfGameSaved()
+
 
 let dragged = null
 
@@ -50,9 +53,11 @@ openSlotsBtns.forEach(openSlot =>{
         const loadSlotsBox = document.querySelector('[data-slots="load"]')
 
         if(saveOrLoad === 'save'){
-            if(loadSlotsBox.dataset.slotsClosed === 'true') saveSlotsBox.dataset.slotsClosed = 'false'
+            saveSlotsBox.dataset.slotsClosed = 'false'
+            if(loadSlotsBox.dataset.slotsClosed === 'false') loadSlotsBox.dataset.slotsClosed = 'true'
         } else{
-            if(saveSlotsBox.dataset.slotsClosed === 'true') loadSlotsBox.dataset.slotsClosed = 'false'
+            loadSlotsBox.dataset.slotsClosed = 'false'
+            if(saveSlotsBox.dataset.slotsClosed === 'false') saveSlotsBox.dataset.slotsClosed = 'true'
         }
     })
 
@@ -84,16 +89,3 @@ loadSlots.forEach((slot) => {
         functions.loadGame(slotNumber)
     })
 })
-
-
-/*
-const hola = document.querySelector('.column-cards')
-
-let carta = new Card('3','spades',hola)
-
-carta.buildCardBack()
-
-let cartaNueva = new Card('2', 'spades', hola)
-
-cartaNueva.build()
-*/

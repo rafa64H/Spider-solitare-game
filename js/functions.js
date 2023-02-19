@@ -215,9 +215,15 @@ export function tryRemovePileOfCards(arrayOfColumn, column){
 
             if(valueCard === 13){
 
+                if(currentCard.getAttribute('data-card-back') === '') break;
+
                 possiblyRemoveCards.forEach(toRemove => {
                     toRemove.remove()
                 });
+
+                arrayOfColumn = [...column.children]
+                const lastCardAfterRemove = arrayOfColumn[arrayOfColumn.length-1]
+                if(lastCardAfterRemove.getAttribute('data-card-back') === '') delete lastCardAfterRemove.dataset.cardBack
 
                 confirmCards(column)
 
@@ -241,6 +247,12 @@ export function verifyIfDraggable(lastCard,column){
         for(let i = arrayColumn.length-2; i>=1; i--){
             let currentCard = arrayColumn[i]
             let beforeCard = arrayColumn[i+1]
+            if(i === arrayColumn.length-2){
+                if(currentCard.getAttribute('data-card-back') === ''){
+                    beforeCard.setAttribute('draggable', 'true')
+                    break;
+                }
+            }
 
             let isCurrentCardBack = currentCard.getAttribute('data-card-back')
 
@@ -344,55 +356,94 @@ export function saveGame(slot){
     localStorage.setItem(`slot${slot}CountWin`, JSON.stringify(countWin))
     localStorage.setItem(`slot${slot}GetCards`, JSON.stringify(getCardsCount))
     localStorage.setItem(`slot${slot}Cards2`, JSON.stringify(cards2))
+
+    verifyIfGameSaved()
 }
 
 export function loadGame(slot){
-    const cardsOnGame = JSON.parse(localStorage.getItem(`slot${slot}Cards`))
-    countWin = parseInt(localStorage.getItem(`slot${slot}CountWin`))
-    getCardsCount = parseInt(localStorage.getItem(`slot${slot}GetCards`))
-    cards2 = JSON.parse(localStorage.getItem(`slot${slot}Cards2`))
+    let verify = parseInt(localStorage.getItem(`slot${slot}CountWin`))
 
-    getCardsButton.dataset.getCards = 'false'
-    if(getCardsCount > 0)getCardsButton.dataset.getCards = true
+    if(isNaN(verify)){
+        const noSaveMessage = document.querySelector('[data-no-save-msg-show]')
+
+        noSaveMessage.dataset.noSaveMsgShow = 'true'
+        
+        setTimeout(() =>{
+            noSaveMessage.dataset.noSaveMsgShow = 'false'
+        }, 2000)
+
+    }else{
+
+        const cardsOnGame = JSON.parse(localStorage.getItem(`slot${slot}Cards`))
+        countWin = parseInt(localStorage.getItem(`slot${slot}CountWin`))
+        getCardsCount = parseInt(localStorage.getItem(`slot${slot}GetCards`))
+        cards2 = JSON.parse(localStorage.getItem(`slot${slot}Cards2`))    
+
+        getCardsButton.dataset.getCards = 'false'
+        if(getCardsCount > 0)getCardsButton.dataset.getCards = true
+        
+        winCards.forEach(winCard => {
+            delete winCard.dataset.cardWin
+        })
     
-    winCards.forEach(winCard => {
-        delete winCard.dataset.cardWin
-    })
-
-    if(countWin > 0) winCards.forEach((winCard, index) =>{
-        if(index >= countWin){}
-        
-        else{winCard.dataset.cardWin = true}
-    })
-
-    const columns = [...document.querySelector('.game-place').children]
-
-    columns.forEach(column => {
-        const columnCardsBefore = [...column.querySelectorAll('.card-game:not([data-card-empty])')]
-        
-        columnCardsBefore.forEach(card => {
-            card.remove()
-        });
-    })
-
-    columns.forEach((column, index) => {
-
-        for(let i = 0; i < cardsOnGame[index].length; i++){
-            let valueCardArr = cardsOnGame[index][i]
-            let loadCard = new Card(valueCardArr[0], valueCardArr[1], column)
-
-            if(valueCardArr[2] !== null){
-                loadCard.buildCardBack()
-            } else{
-                loadCard.build()
+        if(countWin > 0) winCards.forEach((winCard, index) =>{
+            if(index >= countWin){}
+            
+            else{winCard.dataset.cardWin = true}
+        })
+    
+        const columns = [...document.querySelector('.game-place').children]
+    
+        columns.forEach(column => {
+            const columnCardsBefore = [...column.querySelectorAll('.card-game:not([data-card-empty])')]
+            
+            columnCardsBefore.forEach(card => {
+                card.remove()
+            });
+        })
+    
+        columns.forEach((column, index) => {
+    
+            for(let i = 0; i < cardsOnGame[index].length; i++){
+                let valueCardArr = cardsOnGame[index][i]
+                let loadCard = new Card(valueCardArr[0], valueCardArr[1], column)
+    
+                if(valueCardArr[2] !== null){
+                    loadCard.buildCardBack()
+                } else{
+                    loadCard.build()
+                }
             }
+    
+        });
+    
+        const cardEmptyAll = document.querySelectorAll('[data-card-empty]')
+    
+        columns.forEach(column => {
+            confirmCards(column)
+        })
+    }
+
+}
+
+export function verifyIfGameSaved(){
+
+    const slotsSave = [...document.querySelectorAll('[data-save-slot]')]
+    const slotsLoad = [...document.querySelectorAll('[data-load-slot]')]
+
+    slotsSave.forEach((saveSlot, index) => {
+        const loadSlot = slotsLoad[index]
+
+
+        const loadSlotPara = loadSlot.querySelector('[data-load-p]')
+        const saveSlotPara = saveSlot.querySelector('[data-save-p]')
+        
+        let verify = parseInt(localStorage.getItem(`slot${index+1}CountWin`))
+        if(isNaN(verify)){
+
+        }else{
+            saveSlotPara.textContent = `Game Saved`
+            loadSlotPara.textContent = `Game Saved`
         }
-
     });
-
-    const cardEmptyAll = document.querySelectorAll('[data-card-empty]')
-
-    columns.forEach(column => {
-        confirmCards(column)
-    })
 }

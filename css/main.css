@@ -40,6 +40,10 @@ body{
     background-color: rgb(2, 85, 2);
 }
 
+footer{
+    margin-top: 25%;
+}
+
 .up-place{
     display: flex;
 }
@@ -103,7 +107,8 @@ body{
 
 .slots-section{
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
 
     position: absolute;
     top: 50%;
@@ -119,7 +124,7 @@ body{
 .slot{
     margin-top: 1em;
     padding: 1em;
-    width: 30%;
+    width: 50%;
 
     color: white;
     text-align: center;
@@ -163,6 +168,27 @@ header{
     justify-content: center;
 
     margin: 0 auto;
+}
+
+.no-save-msg{
+    display: none;
+
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 50%;
+    padding: 1em;
+
+    color: white;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+[data-no-save-msg-show = 'true']{
+    display: block;
 }
 
 
