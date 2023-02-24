@@ -53,7 +53,7 @@ footer{
 }
 
 .get-cards{
-    background-image: url(/images/card-back.png);
+    background-image: url(../images/card-back.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     margin-right: auto;
@@ -249,228 +249,228 @@ header{
 
 /*---Clubs*/
 [data-card-value='1 clubs']{
-    background-image: url(/images/clubs/ace-clubs.png);
+    background-image: url(../images/clubs/ace-clubs.png);
 }
 
 [data-card-value='2 clubs']{
-    background-image: url(/images/clubs/2-clubs.png);
+    background-image: url(../images/clubs/2-clubs.png);
 }
 
 [data-card-value='3 clubs']{
-    background-image: url(/images/clubs/3-clubs.png);
+    background-image: url(../images/clubs/3-clubs.png);
 }
 
 [data-card-value='4 clubs']{
-    background-image: url(/images/clubs/4-clubs.png);
+    background-image: url(../images/clubs/4-clubs.png);
 }
 
 [data-card-value='5 clubs']{
-    background-image: url(/images/clubs/5-clubs.png);
+    background-image: url(../images/clubs/5-clubs.png);
 }
 
 [data-card-value='6 clubs']{
-    background-image: url(/images/clubs/6-clubs.png);
+    background-image: url(../images/clubs/6-clubs.png);
 }
 
 [data-card-value='7 clubs']{
-    background-image: url(/images/clubs/7-clubs.png);
+    background-image: url(../images/clubs/7-clubs.png);
 }
 
 [data-card-value='8 clubs']{
-    background-image: url(/images/clubs/8-clubs.png);
+    background-image: url(../images/clubs/8-clubs.png);
 }
 
 [data-card-value='9 clubs']{
-    background-image: url(/images/clubs/9-clubs.png);
+    background-image: url(../images/clubs/9-clubs.png);
 }
 
 [data-card-value='10 clubs']{
-    background-image: url(/images/clubs/10-clubs.png);
+    background-image: url(../images/clubs/10-clubs.png);
 }
 
 [data-card-value='11 clubs']{
-    background-image: url(/images/clubs/jack-clubs.png);
+    background-image: url(../images/clubs/jack-clubs.png);
 }
 
 [data-card-value='12 clubs']{
-    background-image: url(/images/clubs/queen-clubs.png);
+    background-image: url(../images/clubs/queen-clubs.png);
 }
 
 [data-card-value='13 clubs']{
-    background-image: url(/images/clubs/king-clubs.png);
+    background-image: url(../images/clubs/king-clubs.png);
 }
 /*---Clubs END*/
 
 /*---Diamonds*/
 [data-card-value='1 diamonds']{
-    background-image: url(/images/diamonds/ace-diamonds.png);
+    background-image: url(../images/diamonds/ace-diamonds.png);
 }
 
 [data-card-value='2 diamonds']{
-    background-image: url(/images/diamonds/2-diamonds.png);
+    background-image: url(../images/diamonds/2-diamonds.png);
 }
 
 [data-card-value='3 diamonds']{
-    background-image: url(/images/diamonds/3-diamonds.png);
+    background-image: url(../images/diamonds/3-diamonds.png);
 }
 
 [data-card-value='4 diamonds']{
-    background-image: url(/images/diamonds/4-diamonds.png);
+    background-image: url(../images/diamonds/4-diamonds.png);
 }
 
 [data-card-value='5 diamonds']{
-    background-image: url(/images/diamonds/5-diamonds.png);
+    background-image: url(../images/diamonds/5-diamonds.png);
 }
 
 [data-card-value='6 diamonds']{
-    background-image: url(/images/diamonds/6-diamonds.png);
+    background-image: url(../images/diamonds/6-diamonds.png);
 }
 
 [data-card-value='7 diamonds']{
-    background-image: url(/images/diamonds/7-diamonds.png);
+    background-image: url(../images/diamonds/7-diamonds.png);
 }
 
 [data-card-value='8 diamonds']{
-    background-image: url(/images/diamonds/8-diamonds.png);
+    background-image: url(../images/diamonds/8-diamonds.png);
 }
 
 [data-card-value='9 diamonds']{
-    background-image: url(/images/diamonds/9-diamonds.png);
+    background-image: url(../images/diamonds/9-diamonds.png);
 }
 
 [data-card-value='10 diamonds']{
-    background-image: url(/images/diamonds/10-diamonds.png);
+    background-image: url(../images/diamonds/10-diamonds.png);
 }
 
 [data-card-value='11 diamonds']{
-    background-image: url(/images/diamonds/jack-diamonds.png);
+    background-image: url(../images/diamonds/jack-diamonds.png);
 }
 
 [data-card-value='12 diamonds']{
-    background-image: url(/images/diamonds/queen-diamonds.png);
+    background-image: url(../images/diamonds/queen-diamonds.png);
 }
 
 [data-card-value='13 diamonds']{
-    background-image: url(/images/diamonds/king-diamonds.png);
+    background-image: url(../images/diamonds/king-diamonds.png);
 }
 /*---Diamonds END*/
 
 /*---Hearts*/
 [data-card-value='1 hearts']{
-    background-image: url(/images/hearts/ace-hearts.png);
+    background-image: url(../images/hearts/ace-hearts.png);
 }
 
 [data-card-value='2 hearts']{
-    background-image: url(/images/hearts/2-hearts.png);
+    background-image: url(../images/hearts/2-hearts.png);
 }
 
 [data-card-value='3 hearts']{
-    background-image: url(/images/hearts/3-hearts.png);
+    background-image: url(../images/hearts/3-hearts.png);
 }
 
 [data-card-value='4 hearts']{
-    background-image: url(/images/hearts/4-hearts.png);
+    background-image: url(../images/hearts/4-hearts.png);
 }
 
 [data-card-value='5 hearts']{
-    background-image: url(/images/hearts/5-hearts.png);
+    background-image: url(../images/hearts/5-hearts.png);
 }
 
 [data-card-value='6 hearts']{
-    background-image: url(/images/hearts/6-hearts.png);
+    background-image: url(../images/hearts/6-hearts.png);
 }
 
 [data-card-value='7 hearts']{
-    background-image: url(/images/hearts/7-hearts.png);
+    background-image: url(../images/hearts/7-hearts.png);
 }
 
 [data-card-value='8 hearts']{
-    background-image: url(/images/hearts/8-hearts.png);
+    background-image: url(../images/hearts/8-hearts.png);
 }
 
 [data-card-value='9 hearts']{
-    background-image: url(/images/hearts/9-hearts.png);
+    background-image: url(../images/hearts/9-hearts.png);
 }
 
 [data-card-value='10 hearts']{
-    background-image: url(/images/hearts/10-hearts.png);
+    background-image: url(../images/hearts/10-hearts.png);
 }
 
 [data-card-value='11 hearts']{
-    background-image: url(/images/hearts/jack-hearts.png);
+    background-image: url(../images/hearts/jack-hearts.png);
 }
 
 [data-card-value='12 hearts']{
-    background-image: url(/images/hearts/queen-hearts.png);
+    background-image: url(../images/hearts/queen-hearts.png);
 }
 
 [data-card-value='13 hearts']{
-    background-image: url(/images/hearts/king-hearts.png);
+    background-image: url(../images/hearts/king-hearts.png);
 }
 /*---Hearts END*/
 
 /*---Spades*/
 [data-card-value='1 spades']{
-    background-image: url(/images/spades/ace-spades.png);
+    background-image: url(../images/spades/ace-spades.png);
 }
 
 [data-card-value='2 spades']{
-    background-image: url(/images/spades/2-spades.png);
+    background-image: url(../images/spades/2-spades.png);
 }
 
 [data-card-value='3 spades']{
-    background-image: url(/images/spades/3-spades.png);
+    background-image: url(../images/spades/3-spades.png);
 }
 
 [data-card-value='4 spades']{
-    background-image: url(/images/spades/4-spades.png);
+    background-image: url(../images/spades/4-spades.png);
 }
 
 [data-card-value='5 spades']{
-    background-image: url(/images/spades/5-spades.png);
+    background-image: url(../images/spades/5-spades.png);
 }
 
 [data-card-value='6 spades']{
-    background-image: url(/images/spades/6-spades.png);
+    background-image: url(../images/spades/6-spades.png);
 }
 
 [data-card-value='7 spades']{
-    background-image: url(/images/spades/7-spades.png);
+    background-image: url(../images/spades/7-spades.png);
 }
 
 [data-card-value='8 spades']{
-    background-image: url(/images/spades/8-spades.png);
+    background-image: url(../images/spades/8-spades.png);
 }
 
 [data-card-value='9 spades']{
-    background-image: url(/images/spades/9-spades.png);
+    background-image: url(../images/spades/9-spades.png);
 }
 
 [data-card-value='10 spades']{
-    background-image: url(/images/spades/10-spades.png);
+    background-image: url(../images/spades/10-spades.png);
 }
 
 [data-card-value='11 spades']{
-    background-image: url(/images/spades/jack-spades.png);
+    background-image: url(../images/spades/jack-spades.png);
 }
 
 [data-card-value='12 spades']{
-    background-image: url(/images/spades/queen-spades.png);
+    background-image: url(../images/spades/queen-spades.png);
 }
 
 [data-card-value='13 spades']{
-    background-image: url(/images/spades/king-spades.png);
+    background-image: url(../images/spades/king-spades.png);
 }
 /*---Spades END*/
 
 [data-card-win]{
-    background-image: url(/images/clubs/king-clubs.png);
+    background-image: url(../images/clubs/king-clubs.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
 
 [data-card-back]{
-    background-image: url(/images/card-back.png);
+    background-image: url(../images/card-back.png);
 }
 
 /*Data attributes for cards END*/
